@@ -9,6 +9,7 @@
     ./environment.nix
     ./users.nix
     ./security.nix
+    ./qylock.nix
   ];
 
   system.stateVersion = "26.05";
