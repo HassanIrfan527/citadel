@@ -15,11 +15,17 @@
   system.stateVersion = "26.05";
   nixpkgs.config.allowUnfree = true;
 
+  # Add nix garbage collection
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
   swapDevices = [
     {
-    device = "/swapfile";
-    size = 8 * 1024; # MB (8 GiB)
-  }
+      device = "/swapfile";
+      size = 8 * 1024; # MB (8 GiB)
+    }
   ];
   hardware = {
     enableRedistributableFirmware = true;
@@ -30,7 +36,6 @@
     };
     cpu.intel.updateMicrocode = true;
   };
-
 
   # Bootloader setup (UEFI)
   boot.loader.grub.enable = true;
@@ -56,15 +61,14 @@
 
   # 5. User Account
 
+  xdg.portal = {
+    enable = true;
 
-xdg.portal = {
-  enable = true;
-
-  extraPortals = with pkgs; [
-    xdg-desktop-portal-gtk
-    xdg-desktop-portal-gnome
-  ];
-};
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-gnome
+    ];
+  };
 
   virtualisation.podman = {
     enable = true;
@@ -74,19 +78,13 @@ xdg.portal = {
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
-nix.gc = {
-  automatic = true;
-  dates = "weekly";
-  options = "--delete-older-than 30d";
-};
-
   # Fonts
   fonts.packages = with pkgs; [
     jetbrains-mono
     fira-code
     noto-fonts
     noto-fonts-cjk-sans
-noto-fonts-color-emoji
+    noto-fonts-color-emoji
   ];
 
   # 7. Enable NixOS flakes & new CLI commands (recommended)
@@ -95,4 +93,23 @@ noto-fonts-color-emoji
     "flakes"
   ];
 
+  virtualisation.oci-containers.backend = "podman";
+  # Ensure podman auto-starts these containers on boot
+  systemd.services."podman-n8n" = {
+    wantedBy = [ "multi-user.target" ];
+  };
+  systemd.services."podman-ngrok_tunnel" = {
+    wantedBy = [ "multi-user.target" ];
+  };
+
+  systemd.user.services.n8n-notify = {
+    description = "n8n Notification Service";
+    wantedBy = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    serviceConfig = {
+      ExecStart = "${pkgs.python3}/bin/python3 /home/dweller/.local/bin/n8n-notify.py";
+      Restart = "always";
+      RestartSec = "5s";
+    };
+  };
 }

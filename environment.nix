@@ -2,6 +2,8 @@
 
 {
   environment = {
+
+    localBinInPath = true;
     # Environment variables
     variables = {
       EDITOR = "nvim";
