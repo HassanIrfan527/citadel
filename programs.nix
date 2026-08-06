@@ -4,8 +4,6 @@
   programs = {
     niri.enable = true;
     zsh.enable = true;
-    git.enable = true;
-    tmux.enable = true;
     steam = {
       enable = true;
       package = pkgs.steam.override {

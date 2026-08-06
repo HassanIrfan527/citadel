@@ -4,6 +4,7 @@
   imports = [
     ./theme.nix
     ./modules/git.nix
+    ./modules/tmux.nix
   ];
 
   # User information
