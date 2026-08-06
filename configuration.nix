@@ -12,6 +12,7 @@
     ./qylock.nix
   ];
 
+  home-manager.users.dweller = import ./home/default.nix;
   system.stateVersion = "26.05";
   nixpkgs.config.allowUnfree = true;
 
@@ -87,29 +88,12 @@
     noto-fonts-color-emoji
   ];
 
-  # 7. Enable NixOS flakes & new CLI commands (recommended)
+  # Enable NixOS flakes & new CLI commands (recommended)
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
   ];
 
-  virtualisation.oci-containers.backend = "podman";
-  # Ensure podman auto-starts these containers on boot
-  systemd.services."podman-n8n" = {
-    wantedBy = [ "multi-user.target" ];
-  };
-  systemd.services."podman-ngrok_tunnel" = {
-    wantedBy = [ "multi-user.target" ];
-  };
-
-  systemd.user.services.n8n-notify = {
-    description = "n8n Notification Service";
-    wantedBy = [ "graphical-session.target" ];
-    after = [ "graphical-session.target" ];
-    serviceConfig = {
-      ExecStart = "${pkgs.python3}/bin/python3 /home/dweller/.local/bin/n8n-notify.py";
-      Restart = "always";
-      RestartSec = "5s";
-    };
-  };
+  # Enable Nix's Auto-optimization
+  nix.settings.auto-optimise-store = true;
 }

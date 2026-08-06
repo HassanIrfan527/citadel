@@ -10,6 +10,11 @@
     };
 
     qylock.url = "github:Darkkal44/qylock";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -25,6 +30,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           qylock.nixosModules.default
+          home-manager.nixosModules.home-manager
 
           ./configuration.nix
           ./noctalia.nix
