@@ -22,6 +22,7 @@
       self,
       nixpkgs,
       qylock,
+      home-manager,
       ...
     }:
     {

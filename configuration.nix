@@ -12,7 +12,13 @@
     ./qylock.nix
   ];
 
-  home-manager.users.dweller = import ./home/default.nix;
+  home-manager = {
+    useGlobalPkgs = true;
+    backupFileExtension = "backup";
+    useUserPackages = true;
+    users.dweller = import ./home/default.nix;
+  };
+
   system.stateVersion = "26.05";
   nixpkgs.config.allowUnfree = true;
 
