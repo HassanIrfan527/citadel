@@ -36,6 +36,8 @@
       fuzzel
       starship
       fastfetch
+      gh
+      home-manager
 
       # Development Languages & Runtimes
       python3 # Python programming language
@@ -51,6 +53,12 @@
       pkg-config
       rustup
       tree-sitter
+      curl
+      zip
+      unzip
+      gnutar
+      ninja
+      cmake
 
       # Developer Tools & Utilities
       lazygit # Terminal UI for git commands

@@ -3,6 +3,7 @@
 {
   imports = [
     ./theme.nix
+    ./modules/git.nix
   ];
 
   # User information
