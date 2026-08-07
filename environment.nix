@@ -93,7 +93,6 @@
 
       # Gaming & Emulation
       steam # Steam gaming platform
-      lutris # Open-source gaming launcher
       wine # Windows compatibility layer (32/64-bit)
       wineWow64Packages.stable # Stable Wine WOW64 package
       winetricks # Helper script for Wine configuration

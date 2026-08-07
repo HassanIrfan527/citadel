@@ -1,12 +1,12 @@
-
-{config, pkgs, ...}:
+{ config, pkgs, ... }:
 
 {
 
-security = {
-sudo.wheelNeedsPassword = true;
-rtkit.enable = true;
-polkit.enable = true;
-};
+  security = {
+    sudo.wheelNeedsPassword = true;
+    rtkit.enable = true;
+    polkit.enable = true;
+    pam.services.sddm.enableGnomeKeyring = true;
+  };
 
 }

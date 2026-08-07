@@ -3,27 +3,36 @@
 {
   gtk = {
     enable = true;
+    gtk3.extraConfig.gtk-application-prefer-dark-theme = 1;
+    gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
 
     iconTheme = {
-      name = "candy-icons";
+      package = pkgs.morewaita-icon-theme;
+      name = "MoreWaita";
     };
 
     theme = {
-      name = "Catppuccin-Mocha-Standard-Mauve-Dark";
+      package = pkgs.colloid-gtk-theme;
+      name = "Colloid-Dark";
     };
   };
 
   home.pointerCursor = {
     enable = true;
-    name = "Sweet-cursors";
-
-    # Point Home Manager to use your manually installed theme folder instead of a nix package:
-    package = pkgs.runCommand "local-cursor-theme" {} ''
-      mkdir -p $out/share/icons
-      ln -s ~/.local/share/icons/Sweet-cursors $out/share/icons/
-    '';
-    size = 28;
     gtk.enable = true;
     x11.enable = true;
+    package = pkgs.nordzy-cursor-theme;
+    name = "Nordzy-cursors";
+    size = 28;
+  };
+
+  xdg.portal.config = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+  qt = {
+    enable = true;
+    platformTheme.name = "gtk3";
+    style.name = "adwaita-dark";
   };
 }

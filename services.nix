@@ -37,5 +37,7 @@
     gvfs.enable = true;
     keyd.enable = true;
 
+    # Enable the GNOME Keyring service
+    gnome.gnome-keyring.enable = true;
   };
 }
