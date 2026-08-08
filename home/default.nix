@@ -5,6 +5,7 @@
     ./theme.nix
     ./modules/git.nix
     ./modules/tmux.nix
+    ./programs.nix
   ];
 
   # User information
@@ -16,6 +17,4 @@
     GTK_THEME = "Graphite-Dark";
   };
 
-  # Enable Home Manager to manage itself
-  programs.home-manager.enable = true;
 }

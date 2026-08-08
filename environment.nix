@@ -68,6 +68,7 @@
       claude-code # Claude CLI tool
       podman-tui # Terminal UI for Podman containers
       bitwarden-cli # Password manager CLI
+      lazysql
 
       # System, Hardware & Network
       intel-media-driver # Hardware video acceleration for Intel
@@ -99,6 +100,9 @@
       protontricks # Helper script for Proton configuration
       mangohud # Performance overlay for gaming
       game-devices-udev-rules # Udev rules for controllers and game devices
+      lutris
+      steam-run
+      protonup-qt
 
       # Extra
       playerctl

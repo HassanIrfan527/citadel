@@ -45,9 +45,14 @@
   };
 
   # Bootloader setup (UEFI)
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "nodev";
-  boot.loader.grub.efiSupport = true;
+  boot.loader.grub = {
+    enable = true;
+    device = "nodev";
+    efiSupport = true;
+
+    theme = ./home/grub-theme;
+  };
+
   boot.loader.efi.canTouchEfiVariables = true;
 
   # 3. Hostname and Network
