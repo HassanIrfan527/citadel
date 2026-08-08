@@ -74,6 +74,7 @@
       intel-media-driver # Hardware video acceleration for Intel
       cifs-utils # Tools for mounting SMB/CIFS shares
       keyd # Keyboard remapping daemon
+      bucklespring-libinput
       pavucontrol # PulseAudio / PipeWire volume control
       weathr # Terminal weather app
       adwaita-icon-theme # Standard GTK icon theme

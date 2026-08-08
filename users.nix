@@ -12,6 +12,7 @@
       "wheel"
       "keyd"
       "networkmanager"
+      "input"
     ]; # 'wheel' enables sudo access
   };
 }
