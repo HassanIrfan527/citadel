@@ -21,9 +21,9 @@
     enable = true;
     gtk.enable = true;
     x11.enable = true;
-    package = pkgs.nordzy-cursor-theme;
-    name = "Nordzy-cursors";
-    size = 28;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Modern-Classic";
+    size = 24;
   };
 
   xdg.portal.config = {

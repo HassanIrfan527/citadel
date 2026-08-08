@@ -15,6 +15,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    darkmatter-grub-theme = {
+      url = "gitlab:VandalByte/darkmatter-grub-theme";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -23,6 +28,7 @@
       nixpkgs,
       qylock,
       home-manager,
+      darkmatter-grub-theme,
       ...
     }:
     {
@@ -31,6 +37,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           qylock.nixosModules.default
+          darkmatter-grub-theme.nixosModule
           home-manager.nixosModules.home-manager
 
           ./configuration.nix

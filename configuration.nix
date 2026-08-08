@@ -46,11 +46,17 @@
 
   # Bootloader setup (UEFI)
   boot.loader.grub = {
+
     enable = true;
     device = "nodev";
     efiSupport = true;
 
-    theme = ./home/grub-theme;
+    darkmatter-theme = {
+      enable = true;
+      style = "nixos";
+      icon = "color";
+      resolution = "1080p";
+    };
   };
 
   boot.loader.efi.canTouchEfiVariables = true;
