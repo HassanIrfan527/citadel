@@ -19,6 +19,9 @@
         extraConfig = ''
           set -g @catppuccin_flavor 'macchiato'
           set -g @catppuccin_window_status_style "rounded"
+
+          set -g @catppuccin_window_text " #{b:pane_current_command}"
+          set -g @catppuccin_window_current_text " #{b:pane_current_command}"
         '';
       }
       {
@@ -95,16 +98,15 @@
       set -g status on
       set -g status-left ""
       set -g status-position top
-      set -g status-justify "left"
       set -g status-left-length 200
       set -g status-right-length 200
-      set -g status-right "#{E:@catppuccin_status_application}"
+
+      set -g status-right "#{E:@catppuccin_status_user}"
       set -agF status-right "#{E:@catppuccin_status_directory}"
       set -ag status-right "#{E:@catppuccin_status_session}"
       set -ag status-right "#{E:@catppuccin_status_uptime}"
 
-      set -wg automatic-rename on
-      set -wg automatic-rename-format "#{b:pane_current_command}"
+      set -g allow-rename off
 
       # ── Pane borders ──
       setw -g pane-border-status off

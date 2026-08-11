@@ -37,7 +37,9 @@
       starship
       fastfetch
       gh
+      jq
       home-manager
+      btop
 
       # Development Languages & Runtimes
       python3 # Python programming language
