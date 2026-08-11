@@ -20,6 +20,11 @@
       url = "gitlab:VandalByte/darkmatter-grub-theme";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    mechsim = {
+      url = "github:cjlangan/MechSim";
+      flake = false;
+    };
   };
 
   outputs =
@@ -29,6 +34,7 @@
       qylock,
       home-manager,
       darkmatter-grub-theme,
+      mechsim,
       ...
     }:
     {

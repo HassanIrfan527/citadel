@@ -13,6 +13,7 @@
       "keyd"
       "networkmanager"
       "input"
+      "nordvpn"
     ]; # 'wheel' enables sudo access
   };
 }

@@ -2,6 +2,9 @@
 
 {
   programs = {
+    nix-ld.enable = true;
+    direnv.nix-direnv.enable = true;
+    direnv.enable = true;
     niri.enable = true;
     zsh.enable = true;
     steam = {
@@ -10,7 +13,6 @@
         extraArgs = "-cef-disable-gpu-compositing";
       };
     };
-    direnv.enable = true;
     gamemode.enable = true;
     neovim = {
       enable = true;

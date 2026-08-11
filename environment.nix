@@ -65,6 +65,7 @@
       supabase-cli # CLI for Supabase backend
       nixfmt # Nix code formatter
       nixd # Nix language server
+      lua-language-server
       claude-code # Claude CLI tool
       podman-tui # Terminal UI for Podman containers
       bitwarden-cli # Password manager CLI
@@ -78,6 +79,7 @@
       pavucontrol # PulseAudio / PipeWire volume control
       weathr # Terminal weather app
       adwaita-icon-theme # Standard GTK icon theme
+      satty
 
       # Desktop Applications
       obsidian # Note-taking app
@@ -102,8 +104,10 @@
       mangohud # Performance overlay for gaming
       game-devices-udev-rules # Udev rules for controllers and game devices
       lutris
+      umu-launcher
       steam-run
       protonup-qt
+      gamescope
 
       # Extra
       playerctl
@@ -111,6 +115,7 @@
       glib
       adw-gtk3
       xwayland-satellite
+      gpu-screen-recorder
     ];
   };
 }

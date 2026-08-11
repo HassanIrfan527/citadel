@@ -75,6 +75,22 @@
         "type": "github"
       }
     },
+    "mechsim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1750452437,
+        "narHash": "sha256-xMYgo/rSPnB4iKQh8WE5e31lDJiBanj0KKuiuvyc00g=",
+        "owner": "cjlangan",
+        "repo": "MechSim",
+        "rev": "b5ea4665a41ee1aa2241ef889b26a33a56e14ed3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "cjlangan",
+        "repo": "MechSim",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1785828668,
@@ -175,6 +191,7 @@
       "inputs": {
         "darkmatter-grub-theme": "darkmatter-grub-theme",
         "home-manager": "home-manager",
+        "mechsim": "mechsim",
         "nixpkgs": "nixpkgs",
         "noctalia": "noctalia",
         "qylock": "qylock"

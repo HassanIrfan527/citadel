@@ -10,6 +10,7 @@
     ./users.nix
     ./security.nix
     ./qylock.nix
+    ./mechsim.nix
   ];
 
   home-manager = {
@@ -65,7 +66,12 @@
   networking = {
     hostName = "citadel";
     networkmanager.enable = true;
-    firewall.enable = true;
+    firewall = {
+      enable = true;
+      checkReversePath = false; # Prevents dropped packets when routing traffic through the VPN
+      allowedUDPPorts = [ 1194 ];
+      allowedTCPPorts = [ 443 ];
+    };
 
     nameservers = [
       "192.168.1.150" # Primary: Pi-hole

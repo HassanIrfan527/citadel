@@ -12,6 +12,7 @@
     };
 
     tailscale.enable = true;
+    nordvpn.enable = true;
     pipewire = {
       enable = true;
       alsa.enable = true;
