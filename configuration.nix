@@ -65,7 +65,20 @@
   # 3. Hostname and Network
   networking = {
     hostName = "citadel";
-    networkmanager.enable = true;
+    networkmanager = {
+      enable = true;
+      dns = "none";
+    };
+
+    stevenblack = {
+      enable = true;
+      block = [
+        "fakenews"
+        "gambling"
+        "porn"
+      ];
+    };
+
     firewall = {
       enable = true;
       checkReversePath = false; # Prevents dropped packets when routing traffic through the VPN
@@ -73,9 +86,7 @@
       allowedTCPPorts = [ 443 ];
     };
 
-    nameservers = [
-      "192.168.1.150" # Primary: Pi-hole
-    ];
+    nameservers = [ "127.0.0.1" ];
   };
 
   # 4. Time zone and Locale

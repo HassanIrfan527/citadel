@@ -12,7 +12,6 @@
     };
 
     tailscale.enable = true;
-    nordvpn.enable = true;
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -21,17 +20,6 @@
       wireplumber.enable = true;
     };
     openssh.enable = true;
-    resolved = {
-      enable = true;
-      settings = {
-        Resolve = {
-          FallbackDNS = [
-            "9.9.9.9"
-            "149.112.112.112"
-          ];
-        };
-      };
-    };
     fwupd.enable = true;
     fstrim.enable = true;
     udisks2.enable = true;
@@ -40,5 +28,18 @@
 
     # Enable the GNOME Keyring service
     gnome.gnome-keyring.enable = true;
+
+    adguardhome = {
+      enable = true;
+      openFirewall = false;
+      settings = {
+        dns = {
+          bind_hosts = [ "127.0.0.1" ];
+        };
+      };
+    };
+
+    # By default, systemd-resolved binds to port 53. AdGuard needs that port to work.
+    resolved.enable = false;
   };
 }

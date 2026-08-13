@@ -61,6 +61,7 @@
       gnutar
       ninja
       cmake
+      jdk
 
       # Developer Tools & Utilities
       lazygit # Terminal UI for git commands
@@ -72,6 +73,8 @@
       podman-tui # Terminal UI for Podman containers
       bitwarden-cli # Password manager CLI
       lazysql
+      rbw
+      pinentry-curses
 
       # System, Hardware & Network
       intel-media-driver # Hardware video acceleration for Intel
@@ -81,7 +84,10 @@
       pavucontrol # PulseAudio / PipeWire volume control
       weathr # Terminal weather app
       adwaita-icon-theme # Standard GTK icon theme
-      satty
+      grim
+      slurp
+      wl-clipboard
+      swappy
 
       # Desktop Applications
       obsidian # Note-taking app
@@ -118,6 +124,7 @@
       adw-gtk3
       xwayland-satellite
       gpu-screen-recorder
+      distrobox
     ];
   };
 }
