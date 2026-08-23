@@ -40,6 +40,8 @@
       jq
       home-manager
       btop
+      tree
+      atuin
 
       # Development Languages & Runtimes
       python3 # Python programming language
@@ -62,6 +64,9 @@
       ninja
       cmake
       jdk
+      bash-language-server
+      shellcheck
+      shfmt
 
       # Developer Tools & Utilities
       lazygit # Terminal UI for git commands
@@ -71,6 +76,10 @@
       lua-language-server
       claude-code # Claude CLI tool
       podman-tui # Terminal UI for Podman containers
+      podman-compose
+      (writeShellScriptBin "docker-compose" ''
+        exec ${pkgs.podman-compose}/bin/podman-compose "$@"
+      '')
       bitwarden-cli # Password manager CLI
       lazysql
       rbw
