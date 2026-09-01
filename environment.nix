@@ -42,6 +42,7 @@
       btop
       tree
       atuin
+      direnv
 
       # Development Languages & Runtimes
       python3 # Python programming language
@@ -67,6 +68,7 @@
       bash-language-server
       shellcheck
       shfmt
+      appimage-run
 
       # Developer Tools & Utilities
       lazygit # Terminal UI for git commands
@@ -111,6 +113,8 @@
       xwayland # X11 compatibility layer for Wayland
       brave # Privacy-focused web browser
       nautilus
+      newsboat
+      newsflash
 
       # Gaming & Emulation
       steam # Steam gaming platform

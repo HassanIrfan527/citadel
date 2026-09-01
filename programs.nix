@@ -3,7 +3,10 @@
 {
   programs = {
     nix-ld.enable = true;
+
+    kdeconnect.enable = true;
     direnv.nix-direnv.enable = true;
+
     direnv.enable = true;
     niri.enable = true;
     zsh.enable = true;
@@ -27,4 +30,5 @@
       pinentryPackage = pkgs.pinentry-curses;
     };
   };
+
 }

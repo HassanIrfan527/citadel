@@ -11,7 +11,6 @@
       wayland.enable = true;
     };
 
-    tailscale.enable = true;
     pipewire = {
       enable = true;
       alsa.enable = true;
@@ -34,12 +33,21 @@
       openFirewall = false;
       settings = {
         dns = {
-          bind_hosts = [ "127.0.0.1" ];
+          bind_hosts = [ "127.0.0.1" "100.111.219.114" ];
         };
       };
     };
 
     # By default, systemd-resolved binds to port 53. AdGuard needs that port to work.
     resolved.enable = false;
+
+    syncthing = {
+      enable = true;
+      user = "dweller";
+      dataDir = "/mnt/personal/Ebooks & PDFs/Manga/";
+      configDir = "/home/dweller/.config/syncthing";
+      openDefaultPorts = true;
+    };
   };
+
 }
