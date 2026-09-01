@@ -16,5 +16,4 @@
   home.sessionVariables = {
     GTK_THEME = "Graphite-Dark";
   };
-
 }
