@@ -14,6 +14,7 @@
     ./systemd.nix
     ./tailscale.nix
     ./freshrss.nix
+    ./boot.nix
   ];
 
   home-manager = {
