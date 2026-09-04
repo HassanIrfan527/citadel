@@ -5,9 +5,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     noctalia = {
-      url = "github:noctalia-dev/noctalia";
+      url = "github:noctalia-dev/noctalia/cachix";
     };
-
     qylock.url = "github:Darkkal44/qylock";
 
     home-manager = {
@@ -24,6 +23,11 @@
       url = "github:cjlangan/MechSim";
       flake = false;
     };
+    umbriel = {
+      url = "github:noctalia-dev/umbriel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
   outputs =
@@ -34,6 +38,7 @@
       home-manager,
       darkmatter-grub-theme,
       mechsim,
+      umbriel,
       ...
     }:
     {
@@ -44,6 +49,7 @@
           qylock.nixosModules.default
           darkmatter-grub-theme.nixosModule
           home-manager.nixosModules.home-manager
+          umbriel.nixosModules.default
 
           ./configuration.nix
           ./noctalia.nix

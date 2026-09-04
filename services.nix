@@ -9,6 +9,12 @@
     displayManager.sddm = {
       enable = true;
       wayland.enable = true;
+
+      settings = {
+        Wayland = {
+          CursorTheme = "Bibata-Modern-Classic";
+        };
+      };
     };
 
     pipewire = {
@@ -33,7 +39,10 @@
       openFirewall = false;
       settings = {
         dns = {
-          bind_hosts = [ "127.0.0.1" "100.111.219.114" ];
+          bind_hosts = [
+            "127.0.0.1"
+            "100.111.219.114"
+          ];
         };
       };
     };

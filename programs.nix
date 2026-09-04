@@ -6,7 +6,7 @@
 
     kdeconnect.enable = true;
     direnv.nix-direnv.enable = true;
-
+    umbriel.enable = true;
     direnv.enable = true;
     niri.enable = true;
     zsh.enable = true;

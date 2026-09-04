@@ -72,20 +72,16 @@
 
       # Developer Tools & Utilities
       lazygit # Terminal UI for git commands
-      supabase-cli # CLI for Supabase backend
       nixfmt # Nix code formatter
       nixd # Nix language server
       lua-language-server
       claude-code # Claude CLI tool
       podman-tui # Terminal UI for Podman containers
       podman-compose
-      (writeShellScriptBin "docker-compose" ''
-        exec ${pkgs.podman-compose}/bin/podman-compose "$@"
-      '')
       bitwarden-cli # Password manager CLI
       lazysql
-      rbw
-      pinentry-curses
+      rbw # Bitwarden rust-alternative. Fast and reliable
+      opencode
 
       # System, Hardware & Network
       intel-media-driver # Hardware video acceleration for Intel
@@ -138,6 +134,8 @@
       xwayland-satellite
       gpu-screen-recorder
       distrobox
+      bibata-cursors
+      pinentry-curses
     ];
   };
 }
