@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   # 1. Include hardware settings (automatically generated during installation)
@@ -22,6 +27,7 @@
     backupFileExtension = "backup";
     useUserPackages = true;
     users.dweller = import ./home/default.nix;
+    extraSpecialArgs = { inherit inputs; };
   };
 
   system.stateVersion = "26.05";
@@ -85,7 +91,16 @@
     firewall = {
       enable = true;
       checkReversePath = false; # Prevents dropped packets when routing traffic through the VPN
-      allowedUDPPorts = [ 1194 ];
+      allowedUDPPorts = [
+        1194
+        5060
+      ];
+      allowedUDPPortRanges = [
+        {
+          from = 10000;
+          to = 20000;
+        }
+      ];
       allowedTCPPorts = [ 443 ];
     };
 

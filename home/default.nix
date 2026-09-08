@@ -1,14 +1,16 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
     ./theme.nix
     ./modules/git.nix
     ./modules/tmux.nix
-    ./modules/opencode.nix
-    ./modules/umbriel.nix
     ./programs.nix
-
   ];
 
   # User information
