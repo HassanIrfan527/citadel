@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   programs = {
@@ -28,6 +33,22 @@
       enable = true;
       enableSSHSupport = true;
       pinentryPackage = pkgs.pinentry-curses;
+    };
+
+    silentSDDM = {
+      enable = true;
+      theme = "ken";
+      # settings = { ... }; see example in module
+    };
+
+    hyprland = {
+      enable = true;
+
+      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      portalPackage =
+        inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+
+      xwayland.enable = true;
     };
   };
 

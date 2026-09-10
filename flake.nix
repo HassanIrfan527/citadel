@@ -7,7 +7,6 @@
     noctalia = {
       url = "github:noctalia-dev/noctalia/cachix";
     };
-    qylock.url = "github:Darkkal44/qylock";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -23,8 +22,13 @@
       url = "github:cjlangan/MechSim";
       flake = false;
     };
-    umbriel = {
-      url = "github:noctalia-dev/umbriel";
+
+    hyprland = {
+      url = "github:hyprwm/Hyprland";
+    };
+
+    silentSDDM = {
+      url = "github:uiriansan/SilentSDDM";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -34,11 +38,11 @@
     inputs@{
       self,
       nixpkgs,
-      qylock,
       home-manager,
       darkmatter-grub-theme,
       mechsim,
-      umbriel,
+      silentSDDM,
+      hyprland,
       ...
     }:
     {
@@ -46,10 +50,9 @@
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          qylock.nixosModules.default
           darkmatter-grub-theme.nixosModule
           home-manager.nixosModules.home-manager
-          umbriel.nixosModules.default
+          silentSDDM.nixosModules.default
 
           ./configuration.nix
           ./noctalia.nix

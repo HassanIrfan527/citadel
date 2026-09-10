@@ -136,6 +136,9 @@
       distrobox
       bibata-cursors
       pinentry-curses
+      brightnessctl
+      cliphist
+      hyprcursor
     ];
   };
 }

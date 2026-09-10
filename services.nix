@@ -6,15 +6,24 @@
     flatpak.enable = true;
     timesyncd.enable = true;
     libinput.enable = true;
+
     displayManager.sddm = {
       enable = true;
-      wayland.enable = true;
+      wayland = {
+        enable = true;
+        compositor = "kwin"; # most important fix
+      };
 
       settings = {
-        Wayland = {
+        Theme = {
           CursorTheme = "Bibata-Modern-Classic";
+          CursorSize = "24";
         };
       };
+
+      extraPackages = with pkgs; [
+        bibata-cursors
+      ];
     };
 
     pipewire = {
