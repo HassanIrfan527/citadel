@@ -23,8 +23,9 @@
       flake = false;
     };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
+    mangowm = {
+      url = "github:mangowm/mango";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     silentSDDM = {
@@ -32,6 +33,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-graph = {
+      url = "github:AlexAntonik/nix-graph";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -42,7 +47,8 @@
       darkmatter-grub-theme,
       mechsim,
       silentSDDM,
-      hyprland,
+      mangowm,
+      nix-graph,
       ...
     }:
     {
@@ -53,6 +59,7 @@
           darkmatter-grub-theme.nixosModule
           home-manager.nixosModules.home-manager
           silentSDDM.nixosModules.default
+          mangowm.nixosModules.mango
 
           ./configuration.nix
           ./noctalia.nix

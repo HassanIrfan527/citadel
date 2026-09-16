@@ -2,6 +2,7 @@
 
 {
   services.tailscale.enable = true;
+  services.tailscale.extraUpFlags = [ "--accept-dns=true" ];
 
   # Allow Tailscale traffic through the NixOS firewall
   networking.firewall = {

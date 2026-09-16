@@ -41,6 +41,17 @@
       "x-systemd.device-timeout=5s"
     ]; # "nofail" prevents boot blocks if the drive is unplugged
   };
+  fileSystems."/mnt/games" = {
+    device = "/dev/disk/by-uuid/d902d910-4128-46de-83e6-6b16e3d33b1c";
+    fsType = "ext4";
+    options = [
+      "nosuid"
+      "nodev"
+      "nofail"
+      "x-gvfs-show"
+      "x-systemd.device-timeout=5s"
+    ]; # "nofail" prevents boot blocks if the drive is unplugged
+  };
 
   boot.initrd.luks.devices."cryptroot".device =
     "/dev/disk/by-uuid/f2345fad-9d5c-46e2-a4d0-eb7f9358381f";

@@ -29,6 +29,8 @@
       vimAlias = true;
     };
 
+    mango.enable = true;
+
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
@@ -41,15 +43,6 @@
       # settings = { ... }; see example in module
     };
 
-    hyprland = {
-      enable = true;
-
-      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-      portalPackage =
-        inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-
-      xwayland.enable = true;
-    };
   };
 
 }

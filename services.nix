@@ -43,21 +43,7 @@
     # Enable the GNOME Keyring service
     gnome.gnome-keyring.enable = true;
 
-    adguardhome = {
-      enable = true;
-      openFirewall = false;
-      settings = {
-        dns = {
-          bind_hosts = [
-            "127.0.0.1"
-            "100.111.219.114"
-          ];
-        };
-      };
-    };
-
-    # By default, systemd-resolved binds to port 53. AdGuard needs that port to work.
-    resolved.enable = false;
+    resolved.enable = true;
 
     syncthing = {
       enable = true;

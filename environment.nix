@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   environment = {
@@ -68,6 +73,9 @@
       bash-language-server
       shellcheck
       shfmt
+      clang
+      clang-tools
+      gdb
       appimage-run
 
       # Developer Tools & Utilities
@@ -125,6 +133,7 @@
       steam-run
       protonup-qt
       gamescope
+      vkbasalt
 
       # Extra
       playerctl
@@ -139,6 +148,9 @@
       brightnessctl
       cliphist
       hyprcursor
+      waybar
+      inputs.nix-graph.packages.${pkgs.stdenv.hostPlatform.system}.nix-graph
+
     ];
   };
 }
