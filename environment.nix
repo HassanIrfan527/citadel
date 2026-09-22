@@ -150,7 +150,12 @@
       # ── The Sanctuary — desktop chrome ──
       waybar
       swaynotificationcenter # notifications + the centre
-      mako # inactive fallback; see ~/.dotfiles/DESIGN-BRIEF.md §5
+      # NO mako here on purpose. It ships a systemd user unit claiming
+      # org.freedesktop.Notifications — the same name swaync claims — and
+      # systemd then refuses BOTH ("Two services allocated for the same bus
+      # name"), after which D-Bus activates mako and swaync can never start.
+      # An installed mako is not an inactive fallback. Its config is kept at
+      # ~/.dotfiles/mako/ if it is ever wanted back.
       swww # wallpaper daemon — replaces noctalia's wallpaper layer
       swaylock-effects # locker, reached by `loginctl lock-session`
       swayidle # idle -> lock
