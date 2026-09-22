@@ -7,8 +7,8 @@
     gtk4.extraConfig.gtk-application-prefer-dark-theme = 1;
 
     iconTheme = {
-      package = pkgs.morewaita-icon-theme;
-      name = "MoreWaita";
+      package = pkgs.candy-icons;
+      name = "CandyIcons";
     };
 
     theme = {

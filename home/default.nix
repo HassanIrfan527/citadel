@@ -20,5 +20,11 @@
   home.stateVersion = "26.05";
   home.sessionVariables = {
     GTK_THEME = "Graphite-Dark";
+
   };
+  home.packages = with pkgs; [
+    ibm-plex
+  ];
+
+  fonts.fontconfig.enable = true;
 }
