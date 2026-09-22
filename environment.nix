@@ -112,7 +112,6 @@
       vlc # Media player
       qbittorrent # Torrent client
       vesktop # Custom Discord desktop client
-      matugen # Material You color scheme generator
       ollama # Local AI model runner
       xwayland # X11 compatibility layer for Wayland
       brave # Privacy-focused web browser
@@ -148,7 +147,16 @@
       brightnessctl
       cliphist
       hyprcursor
+      # ── The Sanctuary — desktop chrome ──
       waybar
+      swaynotificationcenter # notifications + the centre
+      mako # inactive fallback; see ~/.dotfiles/DESIGN-BRIEF.md §5
+      swww # wallpaper daemon — replaces noctalia's wallpaper layer
+      swaylock-effects # locker, reached by `loginctl lock-session`
+      swayidle # idle -> lock
+      wl-gammarelay-rs # night light — manual, keybind-adjusted, DBus-driven
+      wiremix # TUI audio mixer, opened from the bar's mic module
+      libnotify # notify-send, for testing notifications by hand
       inputs.nix-graph.packages.${pkgs.stdenv.hostPlatform.system}.nix-graph
 
     ];

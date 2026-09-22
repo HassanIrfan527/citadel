@@ -4,10 +4,6 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
-    noctalia = {
-      url = "github:noctalia-dev/noctalia/cachix";
-    };
-
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -62,7 +58,6 @@
           mangowm.nixosModules.mango
 
           ./configuration.nix
-          ./noctalia.nix
         ];
       };
     };
