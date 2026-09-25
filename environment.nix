@@ -5,6 +5,27 @@
   ...
 }:
 
+let
+  # Upstream prebuilt binary — building from source compiles 379 crates.
+  fsel = pkgs.stdenv.mkDerivation rec {
+    pname = "fsel";
+    version = "3.7.0";
+
+    src = pkgs.fetchurl {
+      url = "https://github.com/Mjoyufull/fsel/releases/download/${version}/fsel-x86_64-unknown-linux-gnu.tar.xz";
+      hash = "sha256-M8o1XqgtKOQEQzxE3OWUxS30t6llQ/XqFcbycJ/m7eU=";
+    };
+
+    nativeBuildInputs = [ pkgs.autoPatchelfHook ];
+    buildInputs = [ pkgs.stdenv.cc.cc.lib ];
+
+    installPhase = ''
+      runHook preInstall
+      install -Dm755 fsel $out/bin/fsel
+      runHook postInstall
+    '';
+  };
+in
 {
   environment = {
 
@@ -147,23 +168,23 @@
       brightnessctl
       cliphist
       hyprcursor
-      # ── The Sanctuary — desktop chrome ──
+      walker
       waybar
       swaynotificationcenter # notifications + the centre
-      # NO mako here on purpose. It ships a systemd user unit claiming
-      # org.freedesktop.Notifications — the same name swaync claims — and
-      # systemd then refuses BOTH ("Two services allocated for the same bus
-      # name"), after which D-Bus activates mako and swaync can never start.
-      # An installed mako is not an inactive fallback. Its config is kept at
-      # ~/.dotfiles/mako/ if it is ever wanted back.
-      swww # wallpaper daemon — replaces noctalia's wallpaper layer
-      swaylock-effects # locker, reached by `loginctl lock-session`
-      swayidle # idle -> lock
-      wl-gammarelay-rs # night light — manual, keybind-adjusted, DBus-driven
-      wiremix # TUI audio mixer, opened from the bar's mic module
-      libnotify # notify-send, for testing notifications by hand
+      swww
+      swaylock-effects
+      swayidle
+      wl-gammarelay-rs
+      wiremix
+      libnotify
       inputs.nix-graph.packages.${pkgs.stdenv.hostPlatform.system}.nix-graph
+      fsel
 
+      nwg-look
+      adwaita-icon-theme
+      candy-icons
+      adwaita-fonts
+      adwaita-qt6
     ];
   };
 }

@@ -8,7 +8,7 @@
 
     iconTheme = {
       package = pkgs.candy-icons;
-      name = "CandyIcons";
+      name = "candy-icons";
     };
 
     theme = {
