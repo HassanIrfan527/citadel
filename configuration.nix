@@ -73,6 +73,7 @@
   # 3. Hostname and Network
   networking = {
     hostName = "citadel";
+    enableIPv6 = false;
     networkmanager = {
       enable = true;
     };
